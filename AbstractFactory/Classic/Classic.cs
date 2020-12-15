@@ -68,7 +68,7 @@ namespace AbstractFactory.Classic
     public interface IAbstractFactory
     {
         /*
-         Может быть полно всяких сущностей которые надо создать.
+         Может быть полно всяких сущностей которые надо создать, в тч и др фабрики
          */
         IFootwear CreateFootwear();
     }
