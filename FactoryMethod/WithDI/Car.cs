@@ -2,7 +2,6 @@
 
 namespace FactoryMethod.PatternWithDI
 {
-
     public class Car : ITransport
     {
         public void ConcreteRun()

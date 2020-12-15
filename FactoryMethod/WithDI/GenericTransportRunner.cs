@@ -5,13 +5,13 @@ namespace FactoryMethod.PatternWithDI
     class GenericTransportRunner<T> : TransportRunner<T>
         where T : ITransport
     {
-        private readonly T _transport;
+        private readonly IKernel _kernel;
 
-        public GenericTransportRunner(T kernel)
+        public GenericTransportRunner(IKernel kernel)
         {
-            _transport = kernel;
+            _kernel = kernel;
         }
 
-        protected override T GetTransport() => _transport;
+        protected override T GetTransport() => _kernel.Get<T>();
     }
 }
