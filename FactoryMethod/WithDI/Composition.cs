@@ -19,7 +19,6 @@ namespace FactoryMethod.WithDI
             kernel.Bind<ITransport>().To<Bike>();
 
             // TODO REgistrate assembly
-            // How registrate List ITransportRunner
 
             return kernel;
         }
