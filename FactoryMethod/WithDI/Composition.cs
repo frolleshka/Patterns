@@ -12,12 +12,16 @@ namespace FactoryMethod.WithDI
         {
             var kernel = new StandardKernel();
 
+            kernel.Bind<ITransportRunner<Track>>().To<GenericTransportRunner<Track>>();
+
             kernel.Bind<ITransportRunner<ITransport>>().To<CarRunner>();
+            kernel.Bind<ITransportRunner<ITransport>>().To<DoubleCarRunner>();
+
             kernel.Bind<ITransportRunner<Bike>>().To<BikeRunner>();
 
             kernel.Bind<ITransport>().To<Car>();
             kernel.Bind<ITransport>().To<Bike>();
-
+            kernel.Bind<ITransport>().To<Track>();
             // TODO REgistrate assembly
 
             return kernel;

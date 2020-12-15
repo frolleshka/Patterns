@@ -20,6 +20,9 @@ namespace FactoryMethod
             var bike = container.Get<ITransportRunner<Bike>>();
             bike.Run();
 
+            var track = container.Get<ITransportRunner<Track>>();
+            track.Run();
+
             Console.WriteLine();
             Console.WriteLine("====CLASSIC====");
             var middlePortal = new MiddlePortal();

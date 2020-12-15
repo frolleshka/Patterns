@@ -2,12 +2,11 @@
 
 namespace FactoryMethod.PatternWithDI
 {
-
-    public class Car : ITransport
+    public class Track : ITransport
     {
         public void ConcreteRun()
         {
-            Console.WriteLine("Car is Run");
+            Console.WriteLine("Track is Run");
         }
     }
 }
