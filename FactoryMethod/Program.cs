@@ -26,10 +26,10 @@ namespace FactoryMethod
             Console.WriteLine();
             Console.WriteLine("====CLASSIC====");
             var middlePortal = new MiddlePortal();
-            middlePortal.ShockMonster();
+            middlePortal.LenInMonster();
 
             var smallPortal = new SmallPortal();
-            smallPortal.ShockMonster();
+            smallPortal.LenInMonster();
         }
     }
 }

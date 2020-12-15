@@ -6,7 +6,7 @@ namespace FactoryMethod.Abstract
 {
     public abstract class Portal
     {
-        public void ShockMonster()
+        public void LenInMonster()
         {
             var monster = CreateMonster();
             monster.Scream();
