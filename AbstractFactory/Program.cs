@@ -1,5 +1,8 @@
 ﻿using AbstractFactory.Classic;
+using AbstractFactory.WithDI;
 using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AbstractFactory
 {
@@ -8,6 +11,8 @@ namespace AbstractFactory
         static void Main(string[] args)
         {
             ClassicRunner.Run();
+            Console.WriteLine("==========");
+            DiRunner.Run();
         }
     }
 }

@@ -16,9 +16,6 @@ namespace AbstractFactory.Classic
             // или состояний нп платформа, время года, ключ в конфиге и тд...
             PutWear(new SummerClothesFactory());
             PutWear(new WinterClothesFactory());
-
-            Console.WriteLine("=============");
-            Console.WriteLine();
         }
 
         private static void PutWear(IAbstractFactory clothesFactory)
