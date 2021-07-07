@@ -24,6 +24,7 @@ namespace FactoryMethod
             track.Run();
 
             Console.WriteLine();
+
             Console.WriteLine("====CLASSIC====");
             var middlePortal = new MiddlePortal();
             middlePortal.LenInMonster();
