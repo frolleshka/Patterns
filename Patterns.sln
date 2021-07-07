@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31423.177
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patterns", "Patterns\Patterns.csproj", "{3EB21F8D-02B3-4A78-903E-FD201DB5F9F1}"
 EndProject
@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bridge", "Bridge\Bridge.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composite", "Composite\Composite.csproj", "{5652E1D1-7FF4-418C-A226-E0AF8467FC59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decorator", "Decorator\Decorator.csproj", "{3E2379D9-D710-4BA9-89EC-53B1A09578DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Decorator", "Decorator\Decorator.csproj", "{3E2379D9-D710-4BA9-89EC-53B1A09578DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade", "Facade\Facade.csproj", "{E5A59929-3115-49F8-B0E5-CDDBA3D8C9D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{3E2379D9-D710-4BA9-89EC-53B1A09578DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E2379D9-D710-4BA9-89EC-53B1A09578DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E2379D9-D710-4BA9-89EC-53B1A09578DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5A59929-3115-49F8-B0E5-CDDBA3D8C9D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A59929-3115-49F8-B0E5-CDDBA3D8C9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A59929-3115-49F8-B0E5-CDDBA3D8C9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A59929-3115-49F8-B0E5-CDDBA3D8C9D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{538BAC7C-DB94-4329-84E5-D8949E7E2DEA} = {F3F874B7-A8DD-4C99-A35D-F96F86635143}
 		{5652E1D1-7FF4-418C-A226-E0AF8467FC59} = {F3F874B7-A8DD-4C99-A35D-F96F86635143}
 		{3E2379D9-D710-4BA9-89EC-53B1A09578DF} = {F3F874B7-A8DD-4C99-A35D-F96F86635143}
+		{E5A59929-3115-49F8-B0E5-CDDBA3D8C9D8} = {F3F874B7-A8DD-4C99-A35D-F96F86635143}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A5ED014-BF3E-4D70-9BEA-743E8B41882D}
