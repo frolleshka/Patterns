@@ -61,7 +61,7 @@ namespace ChainOfResponsibility
     }
 
 
-    // Сама цепочка, определил в базавом классе, самый просто для примера вариант
+    // Сама цепочка, определил в базовом классе
     public abstract class BaseInstantion : IInstansion
     {
         public IInstansion NextInstantion { get; private set; }
@@ -69,11 +69,12 @@ namespace ChainOfResponsibility
 
         public void AddNext(IInstansion nextInstantion)
         {
-            // тк это связный списой и он оприделяется каждым элементом, то сделал проыерку на зацикливание
+            // тк это связный список и он определяется каждым элементом, то сделал проверку на зацикливание
             // можно было не открывать сл элемент через IInstansion, тогда можно было детектировать только в рантайме
             var currentNextInstantion = nextInstantion;
             while (currentNextInstantion != null)
             {
+                // еслине будет инстанций как в этом примере, можно сравнивать по ссылке, или как угодно
                 if (currentNextInstantion.InstansionType == InstansionType)
                 {
                     throw new Exception("Loop in chain detected");
@@ -110,7 +111,7 @@ namespace ChainOfResponsibility
         }
     }
 
-    // каждый элемент цепи, можно сколь угодно добавлять и добавлять повидение.
+    // каждый элемент цепи, можно сколь угодно добавлять и добавлять поведение.
 
     public class FirstInstansion : BaseInstantion
     {
@@ -163,7 +164,7 @@ namespace ChainOfResponsibility
     }
 
     // некоторый объект который гуляет по обработчикам
-    // в данном слкчае даже хранит состояние до куда дошел)
+    // в данном случае даже хранит состояние до куда дошел)
     
     public class Document
     {

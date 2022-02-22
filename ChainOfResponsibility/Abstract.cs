@@ -11,11 +11,10 @@ namespace ChainOfResponsibility
     {
         public static void Run()
         {
-            Console.WriteLine("");
-            Console.WriteLine("AbstractRun");
             var context = new Context();
             var item = new TestItem();
             var cor = new CoR<Context>();
+
             cor.AddNext(item);
             cor.AddNext(item);
             cor.AddNext(item);
@@ -25,28 +24,38 @@ namespace ChainOfResponsibility
         }
     }
 
+    // некоторый контекст
     public class Context
     {
         public int ContextValue;
     }
 
+    // некоторый элемент цепочки
     public class TestItem : IChainItem<Context>
     {
         void IChainItem<Context>.Handle(Context context, Action executeNext)
         {
+            Console.WriteLine(context.ContextValue);
             context.ContextValue++;
             executeNext();
         }
     }
 
+    /// <summary>
+    /// Контракт который должен соблюдать каждый элемент цепочки
+    /// </summary>
     public interface IChainItem<in TContext>
         where TContext : class
     {
         public void Handle(TContext context, Action executeNext);
     }
 
-    // некоторый пример общей абстракции, надо описать
-
+    /// <summary>
+    /// Реализация цепочки
+    /// Все просто, можно сделать асинхронную версию, суть не поменяется
+    /// Храним обработчики в Chain(вызываем метод AddNext), как только нужно все обработать вызываем Handle.
+    /// Можно несколько усложнить реализацию, добавить  результат обработки или добавить дополнительный враппинг на каждый хэндлер для обработки исключений и тд. В общем расширять можно как угодно. 
+    /// </summary>
     public class CoR <TContext>
         where TContext : class
     {
@@ -63,11 +72,18 @@ namespace ChainOfResponsibility
             Action executor = null;
             executor = () =>
             {
-                current = current.Next;
                 if (current == null)
                 {
                     return;
                 }
+
+                if (current.Next == null)
+                {
+                    current.Value.Handle(context, () => { });
+                    return;
+                }
+
+                current = current.Next;
                 current.Previous.Value.Handle(context, executor);
             };
             executor.Invoke();
