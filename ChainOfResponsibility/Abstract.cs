@@ -59,32 +59,23 @@ namespace ChainOfResponsibility
     public class CoR <TContext>
         where TContext : class
     {
-        private readonly LinkedList<IChainItem<TContext>> Chain = new LinkedList<IChainItem<TContext>>();
+        private readonly Queue<IChainItem<TContext>> Chain = new Queue<IChainItem<TContext>>();
+
         public CoR<TContext> AddNext(IChainItem<TContext> chainItem)
         {
-            Chain.AddLast(chainItem);
+            Chain.Enqueue(chainItem);
             return this;
         }
 
         public void Handle(TContext context)
         {
-            var current = Chain.First;
             Action executor = null;
             executor = () =>
             {
-                if (current == null)
+                if (Chain.TryDequeue(out var chainItem))
                 {
-                    return;
+                    chainItem.Handle(context, executor);
                 }
-
-                if (current.Next == null)
-                {
-                    current.Value.Handle(context, () => { });
-                    return;
-                }
-
-                current = current.Next;
-                current.Previous.Value.Handle(context, executor);
             };
             executor.Invoke();
         }
